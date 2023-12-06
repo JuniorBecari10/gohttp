@@ -10,7 +10,7 @@ server := NewServer("localhost", 8080)
 err := server.Run()
 
 if err != nil {
-	log.Fatal(err)
+  log.Fatal(err)
 }
 ```
 
@@ -19,13 +19,13 @@ This is a server that does nothing; but you can add endpoints too:
 server := NewServer("localhost", 8080)
 
 server.Get("/", func(req *HttpRequest, res *HttpResponse) {
-	res.SetContent("<h1>Hello!</h1>")
+  res.SetContent("<h1>Hello!</h1>")
 })
 
 err := server.Run()
 
 if err != nil {
-	log.Fatal(err)
+  log.Fatal(err)
 }
 ```
 
@@ -34,17 +34,17 @@ You can also add a handler for dealing with resources that do not exist (i.e. 40
 server := NewServer("localhost", 8080)
 
 server.DefineNotFoundHandler(func(req *HttpRequest, res *HttpResponse) {
-	res.Write("<h1>Not Found</h1>")
+  res.Write("<h1>Not Found</h1>")
 })
 
 server.Get("/", func(req *HttpRequest, res *HttpResponse) {
-	res.SetContent("<h1>Hello!</h1>")
+  res.SetContent("<h1>Hello!</h1>")
 })
 
 err := server.Run()
 
 if err != nil {
-	log.Fatal(err)
+  log.Fatal(err)
 }
 ```
 
